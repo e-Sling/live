@@ -48,3 +48,25 @@ const mot_temp = document.getElementById('mot_temp');
 mot_temp.style.width = 70 + '%';
 const mot_temp_num = document.getElementById('mot_temp_num');
 mot_temp_num.innerHTML = 300 +'°';
+
+
+
+
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  
+  // Close the dropdown menu if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  } 
+
