@@ -52,7 +52,7 @@ mot_temp_num.innerHTML = 300 +'°';
 
 
 
-function myFunction() {
+function hide_dropdown() {
     document.getElementById("myDropdown").classList.toggle("show");
   }
   
