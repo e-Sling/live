@@ -54,7 +54,7 @@ mot_temp_num.innerHTML = 300 +'°';
 
 function hide_dropdown() {
     document.getElementById("myDropdown").classList.toggle("show");
-  }
+}
   
   // Close the dropdown menu if the user clicks outside of it
   window.onclick = function(event) {
@@ -69,4 +69,14 @@ function hide_dropdown() {
       }
     }
   } 
+
+
+function hide_panel() {
+  var x = document.getElementById("panel");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
 
