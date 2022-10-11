@@ -26,10 +26,59 @@ Published under GPLv3 License.
 
 <body>
     <div class="dropdown">
-        <button onclick="hide_dropdown()" class="dropbtn">Dropdown</button>
         <div id="myDropdown" class="dropdown-content">
-            lkjsdlksajdf
+            <h1> About the aircraft</h1>
+            <p> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.  </p>
+            <div>
+                <img id= "image_dropdown" src="img/flying_sling.jpg" alt="Flying Sling" style="width: 80%;">
+            </div>
+            <h1> Technical Data </h1>
+
+            <table>
+                <tr>
+                  <th>Power</th>
+                  <th>blablabla</th>
+                </tr>
+                <tr>
+                  <td>Battery</td>
+                  <td> blablabla</td>
+                </tr>
+                <tr>
+                    <td>Battery</td>
+                    <td> blablabla</td>
+                </tr>
+                <tr>
+                    <td>Battery</td>
+                    <td> blablabla</td>
+                </tr>
+                
+            </table> 
+
+
+            <h1> Raw Data </h1>
+
+              <table>
+                  <tr>
+                    <th>Bla</th>
+                    <th>blablabla</th>
+                  </tr>
+                  <tr>
+                    <td>Bla</td>
+                    <td> blablabla</td>
+                  </tr>
+                  <tr>
+                      <td>Battery</td>
+                      <td> blablabla</td>
+                  </tr>
+                  <tr>
+                      <td>Battery</td>
+                      <td> blablabla</td>
+                  </tr>
+                  
+                </table> 
+
         </div>
+        <button onclick="hide_dropdown()" class="dropbtn" id="dropdown_button" style="border-radius: 0 0 15px 15px;"> More Information </button>
     </div> 
     
 
@@ -48,8 +97,8 @@ Published under GPLv3 License.
 
 
     <div id="panel" class="board">
-        <div style="margin: 2px;">
-            <button onclick="hide_panel()"> Hide </button>
+        <div id="hide_button">
+            <button onclick="hide_panel()"> Hide Panel </button>
         </div>
         <div id="left">
         </div>
@@ -86,7 +135,7 @@ Published under GPLv3 License.
     </div>
 
     <div id="show_button">
-        <button onclick="hide_panel()"> Show </button>
+        <button onclick="hide_panel()" class="dropbtn" style="border-radius: 15px 15px 0 0;"> Show Panel </button>
     </div>
 
 

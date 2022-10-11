@@ -53,9 +53,23 @@ mot_temp_num.innerHTML = 300 +'°';
 
 
 function hide_dropdown() {
-    document.getElementById("myDropdown").classList.toggle("show");
+  const content = document.getElementById("myDropdown");
+  const dropdown_button = document.getElementById("dropdown_button");
+
+  if (content.style.display === "none") {
+    dropdown_button.innerHTML = "Less Information";
+    content.style.display = "block";
+  } else {
+    dropdown_button.innerHTML = "More Information";
+    content.style.display = "none";
+  }
+
+  
+  
 }
   
+
+/*
   // Close the dropdown menu if the user clicks outside of it
   window.onclick = function(event) {
     if (!event.target.matches('.dropbtn')) {
@@ -69,13 +83,16 @@ function hide_dropdown() {
       }
     }
   } 
-
+*/
 
 function hide_panel() {
   var x = document.getElementById("panel");
+  var show =  document.getElementById("show_button");
   if (x.style.display === "none") {
+    show.style.display = "none";
     x.style.display = "block";
   } else {
+    show.style.display = "block";
     x.style.display = "none";
   }
 }
