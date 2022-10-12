@@ -68,7 +68,7 @@ function mot_set_refs(margin1, margin2){
 function set_progbar(val, temp, temp_num , min, green_to_yellow, yellow_to_red, max){
   temp_num.innerHTML = val +'°';
   if(val < green_to_yellow){
-    temp.style.width = val*100/(max - min) +'%';
+    temp.style.width = green_to_yellow +'%';
      temp.style.backgroundColor = "green";
   }
   else if (val < yellow_to_red) {
@@ -88,14 +88,18 @@ function set_progbar(val, temp, temp_num , min, green_to_yellow, yellow_to_red, 
 
 const bat_temp = document.getElementById('bat_temp');
 const bat_temp_num = document.getElementById('bat_temp_num');
-set_progbar(74, bat_temp,bat_temp_num, 0, margin1 = 50,margin2 = 80, 100);
+const tr1 = document.getElementById('tr1');
+set_progbar(val1 = 46, bat_temp,bat_temp_num, 0, margin1 = 50,margin2 = 80, 100);
+tr1.style.marginLeft = val1 + '%';
 bat_set_refs(margin1, margin2);
 
 
 
 const mot_temp = document.getElementById('mot_temp');
 const mot_temp_num = document.getElementById('mot_temp_num');
-set_progbar(45, mot_temp, mot_temp_num, 0, margin1 = 40 , margin2 = 55, 70);
+const tr2 = document.getElementById('tr2');
+set_progbar(val2 = 30, mot_temp, mot_temp_num, 0, margin1 = 40 , margin2 = 55, 70);
+tr2.style.marginLeft = val2 + '%';
 mot_set_refs(margin1, margin2);
 
 
