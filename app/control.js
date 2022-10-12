@@ -53,6 +53,8 @@ mot_temp_num.innerHTML = 300 +'°';
 
 
 
+
+
 function hide_dropdown() {
   const content = document.getElementById("myDropdown");
   const dropdown_button = document.getElementById("dropdown_button");
