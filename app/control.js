@@ -107,7 +107,7 @@ function hide_panel() {
 }
 
 
-//https://www.chartjs.org/
+// https://www.chartjs.org/
 var xValues = [100,200,300,400,500,600,700,800,900,1000];
 
 new Chart("myChart", {
@@ -118,7 +118,7 @@ new Chart("myChart", {
       label: 'Altitude',
       data: [860,1140,1060,1060,1070,1110,1330,2210,7830,2478],
       borderColor: "red",
-      fill: false
+      fill: false,
     },{
       label: 'Speed',
       data: [1600,1700,1700,1900,2000,2700,4000,5000,6000,7000],
@@ -126,7 +126,32 @@ new Chart("myChart", {
       fill: false
     }]
   },
+   
+
+
+
+
+// https://www.chartjs.org/docs/latest/samples/line/multi-axis.html
+
+
+
   options: {
-    legend: {display: true}
+    legend: {display: true},
+    scales: {
+      yAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: 'Feet',
+        },
+        position: 'left',
+      }],
+      xAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: 'Time'
+        }
+      }]}
   }
 });
+
+
