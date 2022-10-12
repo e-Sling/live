@@ -37,19 +37,66 @@ setInterval(function() {
 
 }, 50);
 
+function bat_set_refs(margin1, margin2){
+  const ref1 = document.getElementById("bat_ref1");
+  ref1.style.backgroundColor = "black";
+  ref1.style.marginLeft = margin1 + '%';
+  ref1.style.width = 1 + '%';
+  ref1.style.height = 100 + '%';
+
+  const ref2 = document.getElementById("bat_ref2");
+  ref2.style.backgroundColor = "black";
+  ref2.style.marginLeft = margin2 + '%';
+  ref2.style.width = 1 + '%';
+  ref2.style.height = 100 + '%';
+}
+
+function mot_set_refs(margin1, margin2){
+  const ref1 = document.getElementById("mot_ref1");
+  ref1.style.backgroundColor = "black";
+  ref1.style.marginLeft = margin1 + '%';
+  ref1.style.width = 1 + '%';
+  ref1.style.height = 100 + '%';
+
+  const ref2 = document.getElementById("mot_ref2");
+  ref2.style.backgroundColor = "black";
+  ref2.style.marginLeft = margin2 + '%';
+  ref2.style.width = 1 + '%';
+  ref2.style.height = 100 + '%';
+}
+
+function set_progbar(val, temp, temp_num , min, green_to_yellow, yellow_to_red, max){
+  temp_num.innerHTML = val +'°';
+  if(val < green_to_yellow){
+    temp.style.width = val*100/(max - min) +'%';
+     temp.style.backgroundColor = "green";
+  }
+  else if (val < yellow_to_red) {
+    temp.style.width = yellow_to_red - green_to_yellow +'%';
+    temp.style.marginLeft = green_to_yellow + '%';
+    temp.style.backgroundColor = "yellow";
+
+  } 
+  else if (val <= max){
+    temp.style.width = green_to_yellow - yellow_to_red +'%';
+    temp.style.marginLeft = yellow_to_red + '%';
+    temp.style.backgroundColor = "red";
+
+  }
+}
+
 
 const bat_temp = document.getElementById('bat_temp');
-bat_temp.style.width = 50 + '%';
-bat_temp.style.backgroundColor  = "blue";
-
 const bat_temp_num = document.getElementById('bat_temp_num');
-bat_temp_num.innerHTML = 80 +'°';
+set_progbar(74, bat_temp,bat_temp_num, 0, margin1 = 50,margin2 = 80, 100);
+bat_set_refs(margin1, margin2);
+
+
 
 const mot_temp = document.getElementById('mot_temp');
-mot_temp.style.width = 70 + '%';
 const mot_temp_num = document.getElementById('mot_temp_num');
-mot_temp_num.innerHTML = 300 +'°';
-
+set_progbar(45, mot_temp, mot_temp_num, 0, margin1 = 40 , margin2 = 55, 70);
+mot_set_refs(margin1, margin2);
 
 
 
