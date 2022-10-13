@@ -194,7 +194,7 @@ new Chart("myChart", {
           display: true,
           labelString: 'Feet',
         },
-        position: 'left',
+        position: 'right',
       }],
       xAxes: [{
         scaleLabel: {
