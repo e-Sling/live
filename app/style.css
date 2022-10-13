@@ -19,6 +19,7 @@
   height: 100%; 
   width: 30%; 
   padding: 2%;
+
 }
 
 #center{
@@ -27,6 +28,7 @@
   margin-left: 30%; 
   padding: auto; 
   pointer-events: none;
+
 }
 
 #right{
@@ -36,6 +38,7 @@
   width: 30%; 
   margin-left: 70%; 
   padding: 2%;
+
 }
 
 #show_button{
