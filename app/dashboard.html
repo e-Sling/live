@@ -1,0 +1,173 @@
+<!-- 
+Skyhawk Flight Instruments (https://github.com/uw-ray/Skyhawk-Flight-Instruments)
+By Raymond Blaga (raymond.blaga@gmail.com), Edward Hanna (edward.hanna@senecacollege.ca), Pavlo Kuzhel (pavlo.kuzhel@senecacollege.ca)
+
+Forked from jQuery Flight Indicators (https://github.com/sebmatton/jQuery-Flight-Indicators)
+By Sébastien Matton (seb_matton@hotmail.com)
+
+Published under GPLv3 License.
+-->
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html lang="en" dir="ltr">
+
+<head>
+    <title>Demo</title>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/d3.min.js"></script>
+    <script src="js/jquery.flightindicators.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"> </script>
+ 
+
+    <link rel="stylesheet" type="text/css" href="css/flightindicators.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <div id = "logo_cellsius">
+        <a href="https://cellsius.aero"> <img style="width: 100%;" src="img/Cellsius_black_on_transparent.png"> </a>
+    </div>
+
+    <div class="dropdown">
+        <div id="myDropdown" class="dropdown-content">
+            <h1> About the aircraft</h1>
+            <p> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.  </p>
+            <div>
+                <img id= "image_dropdown" src="img/flying_sling.jpg" alt="Flying Sling" style="width: 80%;">
+            </div>
+            <h1> Technical Data </h1>
+
+            <table>
+                <tr>
+                  <th>Power</th>
+                  <th>blablabla</th>
+                </tr>
+                <tr>
+                  <td>Battery</td>
+                  <td> blablabla</td>
+                </tr>
+                <tr>
+                    <td>Battery</td>
+                    <td> blablabla</td>
+                </tr>
+                <tr>
+                    <td>Battery</td>
+                    <td> blablabla</td>
+                </tr>
+                
+            </table> 
+
+
+            <h1> Raw Data </h1>
+
+              <table>
+                  <tr>
+                    <th>Bla</th>
+                    <th>blablabla</th>
+                  </tr>
+                  <tr>
+                    <td>Bla</td>
+                    <td> blablabla</td>
+                  </tr>
+                  <tr>
+                      <td>Battery</td>
+                      <td> blablabla</td>
+                  </tr>
+                  <tr>
+                      <td>Battery</td>
+                      <td> blablabla</td>
+                  </tr>
+                  
+                </table> 
+
+        </div>
+        <button onclick="hide_dropdown()" class="dropbtn" id="dropdown_button" style="border-radius: 0 0 15px 15px;"> More Information </button>
+    </div> 
+    
+
+    <div style="height: 100vh;">
+        <iframe src='https://map.geo.admin.ch/embed.html?lang=en&topic=ech&bgLayer=ch.swisstopo.pixelkarte-farbe&layers=ch.swisstopo.zeitreihen,ch.bfs.gebaeude_wohnungs_register,ch.bav.haltestellen-oev,ch.swisstopo.swisstlm3d-wanderwege,ch.astra.wanderland-sperrungen_umleitungen,ch.bazl.luftfahrtkarten-icao&layers_opacity=1,1,1,0.8,0.8,1&layers_visibility=false,false,false,false,false,true&layers_timestamp=18641231,,,,,&E=2645229.67&N=1194101.85&zoom=1' width='100%' height='100%' frameborder='0' style='border:0' allow='geolocation'></iframe>
+    </div>
+    
+
+<!--
+    <div style="height: 100vh;">
+        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=8.200622599263669%2C47.14819710646384%2C8.977905314107419%2C47.4852233407807&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/>
+    </div>
+-->
+
+       
+
+
+    <div id="panel" class="board">
+       
+        <div id="hide_button">
+            <button onclick="hide_panel()"> Hide Panel </button>
+        </div>
+
+
+
+        <div id="left">
+            <canvas id="myChart" style="width:100%; height: 100%;"></canvas>
+        </div>
+
+
+
+
+        <div id="center">
+            <div>
+                <div class="instrument" id="airspeed"></div>
+                <div class="instrument" id="attitude"></div>
+                <div class="instrument" id="altimeter"></div>            
+            </div>
+            <div>
+                <div class="instrument" id="turn_coordinator"></div>
+                <div class="instrument" id="heading"></div>
+                <div class="instrument" id="variometer"></div>
+            </div>
+        </div>
+
+
+
+
+        <div id="right">
+            <h3 id="bat_temp_num"> </h3>
+            <div class="arrow-down" id="tr1"></div>
+            <div class="progress">
+                <span id="bat_temp"></span> 
+                <span id="bat_ref1"></span> 
+                <span id="bat_ref2"></span>
+            </div>
+            <p> Battery Temperature</p>
+            
+            
+            <h3 id="mot_temp_num"> </h3>
+            <div class="arrow-down" id="tr2"></div>
+            <div class="progress">
+                <span id="mot_temp"></span> 
+                <span id="mot_ref1"></span> 
+                <span id="mot_ref2"></span>
+            </div>
+            <p> Motor Temperature</p> 
+        </div>
+
+    </div>
+
+    <div id="show_button">
+        <button onclick="hide_panel()" class="dropbtn" style="border-radius: 15px 15px 0 0;"> Show Panel </button>
+    </div>
+
+
+    
+
+ 
+
+    <script src="control.js"></script>   
+
+</body>
+
+</html>
