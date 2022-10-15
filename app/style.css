@@ -24,21 +24,52 @@
 
 #center{
   float: left;
-  width: 40%; 
-  margin-left: 30%; 
+  width: 35%; 
+  margin-left: 32.5%; 
   padding: auto; 
   pointer-events: none;
-
 }
 
 #right{
   float: left; 
   position: absolute; 
   height: 100%; 
-  width: 30%; 
-  margin-left: 70%; 
-  padding: 2%;
+  width: 32.5%; 
+  margin-left: 67.5%; 
+  padding-right: 2%;
+}
+#right h3{
+  margin: 1px;
+}
+.arrow-down {
+  width: 0; 
+  height: 0; 
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 10px solid rgb(0, 0, 0);
 
+}
+.progress {
+  width: 100%;
+  height: 5%;
+  border-radius: 24px;
+  background-color: #d6151514;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress span {
+  height: 100%;
+  width: 50%;
+  background-color: green;
+  position: absolute;
+  display: block;
+
+}
+#bat_ref1, #bat_ref2, #mot_ref1, #mot_ref2{
+  background-color: red;
+  width: 1%;
+  height: 100%;
 }
 
 #show_button{
@@ -54,30 +85,9 @@
   opacity: 0.5;
 }
 
-.arrow-down {
-  width: 0; 
-  height: 0; 
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 10px solid rgb(0, 0, 0);
-}
 
-.progress {
-  width: 100%;
-  height: 5%;
-  border-radius: 24px;
-  background-color: #d6151514;
-  overflow: hidden;
-  position: relative;
-}
 
-.progress span {
-  height: 100%;
-  width: 50%;
-  background-color: #dbab5c;
-  position: absolute;
-  display: block;
-}
+
 
 
 
@@ -168,3 +178,43 @@ tr:nth-child(even) {
   background-color: rgb(195, 194, 194);
 }
 
+
+#batBody {
+  float: left;
+  width: 100%;
+  height: 5%;
+  border: 5px #111 solid;
+  border-radius: 8px;
+}
+
+.batContainer {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+}
+
+.batEnd {
+  float: left;
+  width: 1vw;
+  height: 3vh;
+  background-color: white;
+}
+
+.batEnd div {
+  width: 100%;
+  height: 100%;
+  background-color: #111;
+  border-radius: 0px 30px 30px 0px;
+}
+
+#indicator {
+  height: 90%;
+  width: 50%;
+  margin: 3.3px;
+  border-radius: 4px;
+  background-color: #4EC259;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
