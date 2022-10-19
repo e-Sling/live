@@ -28,7 +28,7 @@ setInterval(function() {
 
     altimeter.setAltitude(5000);
     altimeter.setPressure(29.92);
-    turn_coordinator.setTurn(20);
+    turn_coordinator.setTurn(0);
     heading.setHeading(180);
    
 
