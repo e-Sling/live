@@ -143,7 +143,7 @@ Published under GPLv3 License.
 
 
 
-        <div id="right">
+        <div id="right1">
             
             <h3 id="bat_temp_num"> </h3>
             <div class="arrow-down" id="tr1"></div>
@@ -154,14 +154,51 @@ Published under GPLv3 License.
             </div>
             <p> Battery Temperature</p>
 
-            <h3 id="mot_temp_num"> </h3>
-            <div class="arrow-down" id="tr2"></div>
+            <h3 id="voltage"> </h3>
+            <div class="arrow-down" id="voltage_arrow"></div>
             <div class="progress">
-                <span id="mot_temp"></span> 
-                <span id="mot_ref1"></span> 
-                <span id="mot_ref2"></span>
+                <span id="voltage_bar"></span> 
+                <span id="voltage_min"></span> 
+                <span id="voltage_max"></span>
             </div>
-            <p> Battery Temperature</p>
+            <p> Cell Voltage</p>
+            <h3 id="current">  </h3>
+            <div class="arrow-down" id="current_arrow"></div>
+            <div class="progress">
+                <span id="current_bar"></span> 
+                <span id="current_min"></span> 
+                <span id="current_max"></span>
+            </div>
+            <p> Current </p>
+        </div>
+
+        <div id="right2">
+            <h3 id="rpm">  </h3>
+            <div class="arrow-down" id="rpm_arrow"></div>
+            <div class="progress">
+                <span id="rpm_bar"></span> 
+                <span id="rpm_min"></span> 
+                <span id="rpm_max"></span>
+            </div>
+            <p> RPM </p>
+
+            <h3 id="torque"> </h3>
+            <div class="arrow-down" id="torque_arrow"></div>
+            <div class="progress">
+                <span id="torque_bar"></span> 
+                <span id="torque_min"></span> 
+                <span id="torque_max"></span>
+            </div>
+            <p> Torque</p>
+
+            <h3 id="mot_power"> </h3>
+            <div class="arrow-down" id="mot_arrow"></div>
+            <div class="progress">
+                <span id="mot_bar"></span> 
+                <span id="mot_min"></span> 
+                <span id="mot_max"></span>
+            </div>
+            <p> Power </p>
         </div>
 
     </div>

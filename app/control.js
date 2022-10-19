@@ -47,8 +47,8 @@ setInterval(function() {
 
 
 
-async function set_bar(id_bar, id_zahl, id_pfeil, id_strich_links, id_strich_rechts ,value, value_min_good, value_max_good){
-  document.getElementById(id_zahl).innerHTML = value + '°';
+async function set_bar_temperature(id_bar, id_zahl, id_pfeil, id_strich_links, id_strich_rechts ,value, value_min_good, value_max_good, unit){
+  document.getElementById(id_zahl).innerHTML = value + unit;
   document.getElementById(id_strich_links).style.marginLeft = 25 +'%';
   document.getElementById(id_strich_rechts).style.marginLeft = 75 +'%';
   let start = value_min_good - (value_max_good - value_min_good) / 2;
@@ -60,11 +60,31 @@ async function set_bar(id_bar, id_zahl, id_pfeil, id_strich_links, id_strich_rec
   document.getElementById(id_bar).style.marginLeft = 25 + '%';
 }
 
+async function set_bar(id_bar, id_zahl, id_pfeil, id_strich_links, id_strich_rechts ,value, value_min_good, value_max_good, unit){
+  document.getElementById(id_zahl).innerHTML = value + unit;
+  document.getElementById(id_strich_links).style.display = 'none';
+  document.getElementById(id_strich_rechts).style.marginLeft = 75 +'%';
+  let left = value / value_max_good * 75;
+  if(left <= 0) {left = 0;}
+  if(left >= 100) {left = 100;}
+  document.getElementById(id_pfeil).style.marginLeft = left + '%';
+  document.getElementById(id_bar).style.marginLeft = 0 + '%';
+  document.getElementById(id_bar).style.width = 75 + '%';
+}
 
 
-set_bar('bat_temp', 'bat_temp_num', 'tr1', 'bat_ref1', 'bat_ref2', 5, 10, 20 );
 
-set_bar('mot_temp','mot_temp_num', 'tr2', 'mot_ref1', 'mot_ref2', 10, 10, 200 );
+set_bar_temperature('bat_temp', 'bat_temp_num', 'tr1', 'bat_ref1', 'bat_ref2', 10, 10, 50 , '°');
+
+set_bar_temperature('voltage_bar','voltage', 'voltage_arrow', 'voltage_min', 'voltage_max', 3, 2.5, 4.5, 'V');
+
+set_bar('rpm_bar','rpm', 'rpm_arrow', 'rpm_min', 'rpm_max', 100, 0, 200, '' );
+
+set_bar('torque_bar','torque', 'torque_arrow', 'torque_min', 'torque_max', 50, 0, 200, ' Nm' );
+
+set_bar('mot_bar','mot_power', 'mot_arrow', 'mot_min', 'mot_max', 0, 0, 200, ' %' );
+
+set_bar('current_bar','current', 'current_arrow', 'current_min', 'current_max', 400, 0, 400, ' A' );
 
 
 

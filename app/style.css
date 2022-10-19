@@ -30,15 +30,34 @@
   pointer-events: none;
 }
 
-#right{
+#right1{
   float: left; 
   position: absolute; 
   height: 100%; 
-  width: 32.5%; 
+  width: 16.25%; 
   margin-left: 67.5%; 
   padding-right: 2%;
 }
-#right h3{
+#right2{
+  float: left; 
+  position: absolute; 
+  height: 100%; 
+  width: 16.25%; 
+  margin-left: 83.75%; 
+  padding-right: 2%;
+}
+
+
+
+
+
+
+
+#right1 h3{
+  margin: 1px;
+}
+
+#right2 h3{
   margin: 1px;
 }
 .arrow-down {
@@ -62,11 +81,12 @@
   height: 100%;
   width: 50%;
   background-color: green;
-  position: absolute;
   display: block;
+  position: absolute;
+
 
 }
-#bat_ref1, #bat_ref2, #mot_ref1, #mot_ref2{
+#bat_ref1, #bat_ref2, #voltage_min, #voltage_max, #torque_min, #torque_max, #rpm_min, #rpm_max, #mot_min, #mot_max, #current_min, #current_max{
   background-color: red;
   width: 1%;
   height: 100%;
