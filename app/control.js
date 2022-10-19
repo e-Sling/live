@@ -1,4 +1,24 @@
 
+
+
+var airspeed = 100;
+var roll = 10;
+var pitch = 20;
+var altidude = 10000;
+var heading = 120;
+var vertical_speed = 100;
+
+var bat_temp = 50;
+var voltage = 3;
+var current = 400;
+var rpm = 2500;
+var torque = 50;
+var power = 75;
+
+var soc = 30;
+
+
+
 var settings = {
     off_flag: false,
     size: 150,
@@ -19,21 +39,21 @@ heading.setBeaconTwo(0, false);
 
 setInterval(function() {
 
-    airspeed.setAirSpeed(120);
+    airspeed.setAirSpeed(airspeed);
 
-    attitude.setRoll(10);
-    attitude.setPitch(10);
+    attitude.setRoll(roll);
+    attitude.setPitch(roll);
     //attitude.setILSLocalizer(-10);
     //attitude.setILSGlideslope(15);
 
-    altimeter.setAltitude(5000);
+    altimeter.setAltitude(altidude);
     altimeter.setPressure(29.92);
     turn_coordinator.setTurn(0);
-    heading.setHeading(180);
+    heading.setHeading(heading);
    
 
 
-    variometer.setVario(5);
+    variometer.setVario(vertical_speed/100);
 
 }, 50);
 
@@ -74,17 +94,17 @@ async function set_bar(id_bar, id_zahl, id_pfeil, id_strich_links, id_strich_rec
 
 
 
-set_bar_temperature('bat_temp', 'bat_temp_num', 'tr1', 'bat_ref1', 'bat_ref2', 10, 10, 50 , '°');
+set_bar_temperature('bat_temp', 'bat_temp_num', 'tr1', 'bat_ref1', 'bat_ref2', bat_temp, 10, 50 , '°');
 
-set_bar_temperature('voltage_bar','voltage', 'voltage_arrow', 'voltage_min', 'voltage_max', 3, 2.5, 4.5, 'V');
+set_bar_temperature('voltage_bar','voltage', 'voltage_arrow', 'voltage_min', 'voltage_max', voltage, 2.5, 4.5, 'V');
 
-set_bar('rpm_bar','rpm', 'rpm_arrow', 'rpm_min', 'rpm_max', 100, 0, 200, '' );
+set_bar('rpm_bar','rpm', 'rpm_arrow', 'rpm_min', 'rpm_max', rpm, 0, 2500, '' );
 
-set_bar('torque_bar','torque', 'torque_arrow', 'torque_min', 'torque_max', 50, 0, 200, ' Nm' );
+set_bar('torque_bar','torque', 'torque_arrow', 'torque_min', 'torque_max', torque, 0, 200, ' Nm' );
 
-set_bar('mot_bar','mot_power', 'mot_arrow', 'mot_min', 'mot_max', 0, 0, 200, ' %' );
+set_bar('mot_bar','mot_power', 'mot_arrow', 'mot_min', 'mot_max', power, 0, 200, ' %' );
 
-set_bar('current_bar','current', 'current_arrow', 'current_min', 'current_max', 400, 0, 400, ' A' );
+set_bar('current_bar','current', 'current_arrow', 'current_min', 'current_max', current, 0, 400, ' A' );
 
 
 
