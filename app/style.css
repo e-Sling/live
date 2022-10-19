@@ -87,7 +87,7 @@
 }
 #bat_ref1, #bat_ref2, #voltage_min, #voltage_max, #torque_min, #torque_max, #rpm_min, #rpm_max, #mot_min, #mot_max, #current_min, #current_max{
   background-color: red;
-  width: 1%;
+  width: 2%;
   height: 100%;
 }
 

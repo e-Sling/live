@@ -15,7 +15,21 @@ var rpm = 2500;
 var torque = 50;
 var power = 75;
 
-var soc = 10;
+var soc = 50;
+
+
+var bat_crit_min = 10;
+var bat_crit_max = 50;
+
+var bat_voltage_min = 2.5;
+var bat_voltage_max = 4;
+
+var max_rpm = 2500;
+
+var max_torque = 100;
+
+var max_current = 400;
+
 
 
 
@@ -94,17 +108,17 @@ async function set_bar(id_bar, id_zahl, id_pfeil, id_strich_links, id_strich_rec
 
 
 
-set_bar_temperature('bat_temp', 'bat_temp_num', 'tr1', 'bat_ref1', 'bat_ref2', bat_temp, 10, 50 , '°');
+set_bar_temperature('bat_temp', 'bat_temp_num', 'tr1', 'bat_ref1', 'bat_ref2', bat_temp, bat_crit_min, bat_crit_max , '°');
 
-set_bar_temperature('voltage_bar','voltage', 'voltage_arrow', 'voltage_min', 'voltage_max', voltage, 2.5, 4.5, 'V');
+set_bar_temperature('voltage_bar','voltage', 'voltage_arrow', 'voltage_min', 'voltage_max', voltage, bat_voltage_min, bat_voltage_max, 'V');
 
-set_bar('rpm_bar','rpm', 'rpm_arrow', 'rpm_min', 'rpm_max', rpm, 0, 2500, '' );
+set_bar('rpm_bar','rpm', 'rpm_arrow', 'rpm_min', 'rpm_max', rpm, 0, max_rpm, '' );
 
-set_bar('torque_bar','torque', 'torque_arrow', 'torque_min', 'torque_max', torque, 0, 200, ' Nm' );
+set_bar('torque_bar','torque', 'torque_arrow', 'torque_min', 'torque_max', torque, 0, max_torque, ' Nm' );
 
-set_bar('mot_bar','mot_power', 'mot_arrow', 'mot_min', 'mot_max', power, 0, 200, ' %' );
+set_bar('mot_bar','mot_power', 'mot_arrow', 'mot_min', 'mot_max', power, 0, 100, ' %' );
 
-set_bar('current_bar','current', 'current_arrow', 'current_min', 'current_max', current, 0, 400, ' A' );
+set_bar('current_bar','current', 'current_arrow', 'current_min', 'current_max', current, 0, max_current, ' A' );
 
 
 
