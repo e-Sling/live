@@ -15,7 +15,7 @@ var rpm = 2500;
 var torque = 50;
 var power = 75;
 
-var soc = 30;
+var soc = 10;
 
 
 
@@ -105,6 +105,11 @@ set_bar('torque_bar','torque', 'torque_arrow', 'torque_min', 'torque_max', torqu
 set_bar('mot_bar','mot_power', 'mot_arrow', 'mot_min', 'mot_max', power, 0, 200, ' %' );
 
 set_bar('current_bar','current', 'current_arrow', 'current_min', 'current_max', current, 0, 400, ' A' );
+
+
+
+document.getElementById('percentage').innerHTML = soc + '%';
+document.getElementById('indicator').style.width = soc + '%';
 
 
 

@@ -14,7 +14,6 @@
 }
 
 #left {
-  float: left;
   position: absolute; 
   height: 100%; 
   width: 30%; 
@@ -229,9 +228,9 @@ tr:nth-child(even) {
 
 .batEnd {
   float: left;
-  margin-top: 2%;
+  margin-top: 3%;
   width: 1vw;
-  height: 3vh;
+  height: 20px;
   background-color: rgb(126, 126, 126);
 }
 
@@ -243,9 +242,9 @@ tr:nth-child(even) {
 }
 
 #indicator {
-  height: 90%;
+  height: 100%;
   width: 50%;
-  margin: 3.3px;
+  
   border-radius: 4px;
   background-color: #4EC259;
   display: flex;
