@@ -4,7 +4,7 @@
 var airspeed = 100;
 var roll = 10;
 var pitch = 20;
-var altidude = 10000;
+var altidude = 5872;
 var heading = 120;
 var vertical_speed = 100;
 
