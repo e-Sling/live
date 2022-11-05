@@ -1,4 +1,38 @@
 
+
+
+var airspeed = 100;
+var roll = 10;
+var pitch = 20;
+var altidude = 5872;
+var heading = 120;
+var vertical_speed = 100;
+
+var bat_temp = 50;
+var voltage = 3;
+var current = 400;
+var rpm = 2500;
+var torque = 50;
+var power = 75;
+
+var soc = 50;
+
+
+var bat_crit_min = 10;
+var bat_crit_max = 50;
+
+var bat_voltage_min = 2.5;
+var bat_voltage_max = 4;
+
+var max_rpm = 2500;
+
+var max_torque = 100;
+
+var max_current = 400;
+
+
+
+
 var settings = {
     off_flag: false,
     size: 150,
@@ -19,96 +53,90 @@ heading.setBeaconTwo(0, false);
 
 setInterval(function() {
 
-    airspeed.setAirSpeed(120);
+    airspeed.setAirSpeed(airspeed);
 
-    attitude.setRoll(10);
-    attitude.setPitch(10);
+    attitude.setRoll(roll);
+    attitude.setPitch(roll);
     //attitude.setILSLocalizer(-10);
     //attitude.setILSGlideslope(15);
 
-    altimeter.setAltitude(5000);
+    altimeter.setAltitude(altidude);
     altimeter.setPressure(29.92);
-    turn_coordinator.setTurn(20);
-    heading.setHeading(180);
+    turn_coordinator.setTurn(0);
+    heading.setHeading(heading);
    
 
 
-    variometer.setVario(5);
+    variometer.setVario(vertical_speed/100);
 
 }, 50);
 
-function bat_set_refs(margin1, margin2){
-  const ref1 = document.getElementById("bat_ref1");
-  ref1.style.backgroundColor = "black";
-  ref1.style.marginLeft = margin1 + '%';
-  ref1.style.width = 1 + '%';
-  ref1.style.height = 100 + '%';
-
-  const ref2 = document.getElementById("bat_ref2");
-  ref2.style.backgroundColor = "black";
-  ref2.style.marginLeft = margin2 + '%';
-  ref2.style.width = 1 + '%';
-  ref2.style.height = 100 + '%';
-}
-
-function mot_set_refs(margin1, margin2){
-  const ref1 = document.getElementById("mot_ref1");
-  ref1.style.backgroundColor = "black";
-  ref1.style.marginLeft = margin1 + '%';
-  ref1.style.width = 1 + '%';
-  ref1.style.height = 100 + '%';
-
-  const ref2 = document.getElementById("mot_ref2");
-  ref2.style.backgroundColor = "black";
-  ref2.style.marginLeft = margin2 + '%';
-  ref2.style.width = 1 + '%';
-  ref2.style.height = 100 + '%';
-}
-
-function set_progbar(val, temp, temp_num , min, green_to_yellow, yellow_to_red, max){
-  temp_num.innerHTML = val +'°';
-  if(val < green_to_yellow){
-    temp.style.width = green_to_yellow +'%';
-     temp.style.backgroundColor = "green";
-  }
-  else if (val < yellow_to_red) {
-    temp.style.width = yellow_to_red - green_to_yellow +'%';
-    temp.style.marginLeft = green_to_yellow + '%';
-    temp.style.backgroundColor = "yellow";
-
-  } 
-  else if (val <= max){
-    temp.style.width = green_to_yellow - yellow_to_red +'%';
-    temp.style.marginLeft = yellow_to_red + '%';
-    temp.style.backgroundColor = "red";
-
-  }
-}
-
-
-const bat_temp = document.getElementById('bat_temp');
-const bat_temp_num = document.getElementById('bat_temp_num');
-const tr1 = document.getElementById('tr1');
-set_progbar(val1 = 46, bat_temp,bat_temp_num, 0, margin1 = 50,margin2 = 80, 100);
-tr1.style.marginLeft = val1 + '%';
-bat_set_refs(margin1, margin2);
-
-
-
-const mot_temp = document.getElementById('mot_temp');
-const mot_temp_num = document.getElementById('mot_temp_num');
-const tr2 = document.getElementById('tr2');
-set_progbar(val2 = 30, mot_temp, mot_temp_num, 0, margin1 = 40 , margin2 = 55, 70);
-tr2.style.marginLeft = val2 + '%';
-mot_set_refs(margin1, margin2);
-
-
-
-
-
-function hide_dropdown() {
 
   
+
+
+
+
+
+
+
+
+async function set_bar_temperature(id_bar, id_zahl, id_pfeil, id_strich_links, id_strich_rechts ,value, value_min_good, value_max_good, unit){
+  document.getElementById(id_zahl).innerHTML = value + unit;
+  document.getElementById(id_strich_links).style.marginLeft = 25 +'%';
+  document.getElementById(id_strich_rechts).style.marginLeft = 75 +'%';
+  let start = value_min_good - (value_max_good - value_min_good) / 2;
+  let bar_length = 2 * (value_max_good - value_min_good);
+  let left = (value - start) / bar_length * 100;
+  if(left <= 0) {left = 0;}
+  if(left >= 100) {left = 100;}
+  document.getElementById(id_pfeil).style.marginLeft = left + '%';
+  document.getElementById(id_bar).style.marginLeft = 25 + '%';
+}
+
+async function set_bar(id_bar, id_zahl, id_pfeil, id_strich_links, id_strich_rechts ,value, value_min_good, value_max_good, unit){
+  document.getElementById(id_zahl).innerHTML = value + unit;
+  document.getElementById(id_strich_links).style.display = 'none';
+  document.getElementById(id_strich_rechts).style.marginLeft = 75 +'%';
+  let left = value / value_max_good * 75;
+  if(left <= 0) {left = 0;}
+  if(left >= 100) {left = 100;}
+  document.getElementById(id_pfeil).style.marginLeft = left + '%';
+  document.getElementById(id_bar).style.marginLeft = 0 + '%';
+  document.getElementById(id_bar).style.width = 75 + '%';
+}
+
+
+
+set_bar_temperature('bat_temp', 'bat_temp_num', 'tr1', 'bat_ref1', 'bat_ref2', bat_temp, bat_crit_min, bat_crit_max , '°');
+
+set_bar_temperature('voltage_bar','voltage', 'voltage_arrow', 'voltage_min', 'voltage_max', voltage, bat_voltage_min, bat_voltage_max, 'V');
+
+set_bar('rpm_bar','rpm', 'rpm_arrow', 'rpm_min', 'rpm_max', rpm, 0, max_rpm, '' );
+
+set_bar('torque_bar','torque', 'torque_arrow', 'torque_min', 'torque_max', torque, 0, max_torque, ' Nm' );
+
+set_bar('mot_bar','mot_power', 'mot_arrow', 'mot_min', 'mot_max', power, 0, 100, ' %' );
+
+set_bar('current_bar','current', 'current_arrow', 'current_min', 'current_max', current, 0, max_current, ' A' );
+
+
+
+document.getElementById('percentage').innerHTML = soc + '%';
+document.getElementById('indicator').style.width = soc + '%';
+
+
+
+
+
+
+
+
+
+
+
+
+async function hide_dropdown() {
   const content = document.getElementById("myDropdown");
   const dropdown_button = document.getElementById("dropdown_button");
 
@@ -124,26 +152,7 @@ function hide_dropdown() {
   
 }
   
-
-/*
-  // Close the dropdown menu if the user clicks outside of it
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
-  } 
-*/
-
-
-
-function hide_panel() {
+async function hide_panel() {
   const x = document.getElementById("panel");
   const show =  document.getElementById("show_button");
 
@@ -159,50 +168,8 @@ function hide_panel() {
 
 
 // https://www.chartjs.org/
-var xValues = [100,200,300,400,500,600,700,800,900,1000];
-
-new Chart("myChart", {
-  type: "line",
-  data: {
-    labels: xValues,
-    datasets: [{
-      label: 'Altitude',
-      data: [860,1140,1060,1060,1070,1110,1330,2210,7830,2478],
-      borderColor: "red",
-      fill: false,
-    },{
-      label: 'Speed',
-      data: [1600,1700,1700,1900,2000,2700,4000,5000,6000,7000],
-      borderColor: "green",
-      fill: false
-    }]
-  },
-   
 
 
 
-
-// https://www.chartjs.org/docs/latest/samples/line/multi-axis.html
-
-
-
-  options: {
-    legend: {display: true},
-    scales: {
-      yAxes: [{
-        scaleLabel: {
-          display: true,
-          labelString: 'Feet',
-        },
-        position: 'right',
-      }],
-      xAxes: [{
-        scaleLabel: {
-          display: true,
-          labelString: 'Time'
-        }
-      }]}
-  }
-});
 
 

@@ -5,7 +5,7 @@
   width: 100%;
   height: auto;
   border-style: solid;
-  background-color: grey;
+  background-color: rgb(126, 126, 126);
   border-color: rgb(51, 51, 51) rgb(51, 51, 51) grey rgb(51, 51, 51);
   border-width: 5px;
   border-radius: 75px 75px 0 0;
@@ -14,7 +14,6 @@
 }
 
 #left {
-  float: left;
   position: absolute; 
   height: 100%; 
   width: 30%; 
@@ -24,21 +23,72 @@
 
 #center{
   float: left;
-  width: 40%; 
-  margin-left: 30%; 
+  width: 35%; 
+  margin-left: 32.5%; 
   padding: auto; 
   pointer-events: none;
-
 }
 
-#right{
+#right1{
   float: left; 
   position: absolute; 
   height: 100%; 
-  width: 30%; 
-  margin-left: 70%; 
-  padding: 2%;
+  width: 16.25%; 
+  margin-left: 67.5%; 
+  padding-right: 2%;
+}
+#right2{
+  float: left; 
+  position: absolute; 
+  height: 100%; 
+  width: 16.25%; 
+  margin-left: 83.75%; 
+  padding-right: 2%;
+}
 
+
+
+
+
+
+
+#right1 h3{
+  margin: 1px;
+}
+
+#right2 h3{
+  margin: 1px;
+}
+.arrow-down {
+  width: 0; 
+  height: 0; 
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 10px solid rgb(0, 0, 0);
+
+}
+.progress {
+  width: 100%;
+  height: 5%;
+  border-radius: 24px;
+  background-color: #d6151514;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress span {
+  height: 100%;
+  width: 50%;
+  background-color: green;
+  display: block;
+  position: absolute;
+
+
+}
+#bat_ref1, #bat_ref2, #voltage_min, #voltage_max, #torque_min, #torque_max, #rpm_min, #rpm_max, #mot_min, #mot_max, #current_min, #current_max{
+  background-color: red;
+  width: 2%;
+  height: 100%;
 }
 
 #show_button{
@@ -54,30 +104,9 @@
   opacity: 0.5;
 }
 
-.arrow-down {
-  width: 0; 
-  height: 0; 
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 10px solid rgb(0, 0, 0);
-}
 
-.progress {
-  width: 100%;
-  height: 5%;
-  border-radius: 24px;
-  background-color: #d6151514;
-  overflow: hidden;
-  position: relative;
-}
 
-.progress span {
-  height: 100%;
-  width: 50%;
-  background-color: #dbab5c;
-  position: absolute;
-  display: block;
-}
+
 
 
 
@@ -154,9 +183,8 @@ tr:nth-child(even) {
   margin: 2%;
 }
 
-#logo_cellsius{
+#logo{
   position: fixed;
-  padding: 15px;
   margin-top: 5vh;
   width: 10%;
   background-color: white;
@@ -164,7 +192,62 @@ tr:nth-child(even) {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
+
+
+#logo_cellsius{
+  padding: 15px;
+}
 #logo_cellsius:hover{
   background-color: rgb(195, 194, 194);
 }
 
+#logo_vectornav{
+  margin-top: 1%;
+  padding: 15px;
+}
+#logo_vectornav:hover{
+  background-color: rgb(195, 194, 194);
+}
+
+
+
+#batBody {
+  float: left;
+  width: 100%;
+  height: 5%;
+  border: 5px #111 solid;
+  border-radius: 8px;
+}
+
+.batContainer {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+}
+
+.batEnd {
+  float: left;
+  margin-top: 3%;
+  width: 1vw;
+  height: 20px;
+  background-color: rgb(126, 126, 126);
+}
+
+.batEnd div {
+  width: 100%;
+  height: 100%;
+  background-color: #111;
+  border-radius: 0px 30px 30px 0px;
+}
+
+#indicator {
+  height: 100%;
+  width: 50%;
+  
+  border-radius: 4px;
+  background-color: #4EC259;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

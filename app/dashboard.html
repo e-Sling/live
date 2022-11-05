@@ -28,8 +28,13 @@ Published under GPLv3 License.
 
 <body>
 
-    <div id = "logo_cellsius">
-        <a href="https://cellsius.aero"> <img style="width: 100%;" src="img/Cellsius_black_on_transparent.png"> </a>
+    <div id = "logo">
+        <div id = logo_cellsius> 
+            <a href="https://cellsius.aero"> <img style="width: 100%;" src="img/Cellsius_black_on_transparent.png"> </a>
+        </div>
+        <div id = "logo_vectornav">
+            <a href="https://www.vectornav.com/"> <img style="width: 100%;" src="img/black_logo_vectornav.png"> </a>
+        </div>
     </div>
 
     <div class="dropdown">
@@ -43,20 +48,20 @@ Published under GPLv3 License.
 
             <table>
                 <tr>
-                  <th>Power</th>
-                  <th>blablabla</th>
+                  <td>Max Power</td>
+                  <td>104 kW</td>
                 </tr>
                 <tr>
-                  <td>Battery</td>
-                  <td> blablabla</td>
+                  <td>Energy Capacity</td>
+                  <td>44 kWh</td>
                 </tr>
                 <tr>
-                    <td>Battery</td>
-                    <td> blablabla</td>
+                    <td>Maximal Take Off Weight</td>
+                    <td>950 kg</td>
                 </tr>
                 <tr>
-                    <td>Battery</td>
-                    <td> blablabla</td>
+                    <td>Wingspan</td>
+                    <td>10,5 m</td>
                 </tr>
                 
             </table> 
@@ -112,7 +117,18 @@ Published under GPLv3 License.
 
 
         <div id="left">
-            <canvas id="myChart" style="width:100%; height: 100%;"></canvas>
+            <div class="batContainer">
+                <div id="batBody">
+                    <div id="indicator">
+                        <p id = "percentage"></p>
+                    </div>
+                </div>
+            
+            </div>
+            <div class="batEnd">
+                <div></div>
+            </div>
+            
         </div>
 
 
@@ -134,7 +150,8 @@ Published under GPLv3 License.
 
 
 
-        <div id="right">
+        <div id="right1">
+            
             <h3 id="bat_temp_num"> </h3>
             <div class="arrow-down" id="tr1"></div>
             <div class="progress">
@@ -143,16 +160,52 @@ Published under GPLv3 License.
                 <span id="bat_ref2"></span>
             </div>
             <p> Battery Temperature</p>
-            
-            
-            <h3 id="mot_temp_num"> </h3>
-            <div class="arrow-down" id="tr2"></div>
+
+            <h3 id="voltage"> </h3>
+            <div class="arrow-down" id="voltage_arrow"></div>
             <div class="progress">
-                <span id="mot_temp"></span> 
-                <span id="mot_ref1"></span> 
-                <span id="mot_ref2"></span>
+                <span id="voltage_bar"></span> 
+                <span id="voltage_min"></span> 
+                <span id="voltage_max"></span>
             </div>
-            <p> Motor Temperature</p> 
+            <p> Cell Voltage</p>
+            <h3 id="current">  </h3>
+            <div class="arrow-down" id="current_arrow"></div>
+            <div class="progress">
+                <span id="current_bar"></span> 
+                <span id="current_min"></span> 
+                <span id="current_max"></span>
+            </div>
+            <p> Current </p>
+        </div>
+
+        <div id="right2">
+            <h3 id="rpm">  </h3>
+            <div class="arrow-down" id="rpm_arrow"></div>
+            <div class="progress">
+                <span id="rpm_bar"></span> 
+                <span id="rpm_min"></span> 
+                <span id="rpm_max"></span>
+            </div>
+            <p> RPM </p>
+
+            <h3 id="torque"> </h3>
+            <div class="arrow-down" id="torque_arrow"></div>
+            <div class="progress">
+                <span id="torque_bar"></span> 
+                <span id="torque_min"></span> 
+                <span id="torque_max"></span>
+            </div>
+            <p> Torque</p>
+
+            <h3 id="mot_power"> </h3>
+            <div class="arrow-down" id="mot_arrow"></div>
+            <div class="progress">
+                <span id="mot_bar"></span> 
+                <span id="mot_min"></span> 
+                <span id="mot_max"></span>
+            </div>
+            <p> Power </p>
         </div>
 
     </div>
